@@ -1,0 +1,35 @@
+/* Add this CSS to your component's CSS file (e.g., `booking.component.css`) */
+
+section.d-flex {
+  background-color: rgba(26, 26, 46, 0.8); /* dark transparent overlay for background */
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+section.d-flex .form-label {
+  color: #f0f0f0; /* Light color for labels */
+  font-weight: bold;
+}
+
+section.d-flex .form-control {
+  background-color: #2b2b3d; /* Darker input background */
+  color: #e0e0e0; /* Light text for input fields */
+  border: 1px solid #4e4e6f; /* Border to match the theme */
+}
+
+section.d-flex .form-control::placeholder {
+  color: #b3b3c9; /* Placeholder color */
+}
+
+section.d-flex .btn-secondary {
+  background-color: #1a1a2e;
+  border: 1px solid #1a1a2e;
+  color: #2b2b3d;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+section.d-flex .btn-secondary:hover {
+  background-color: #1a1a2e;
+  color: #ffffff;
+}

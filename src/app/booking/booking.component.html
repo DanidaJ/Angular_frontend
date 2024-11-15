@@ -1,0 +1,64 @@
+<section class="d-flex justify-content-center">
+  <section class="mt-5 w-50">
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="fName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fName" formControlName="fName" placeholder="First Name">
+      </div>
+      <div class="mb-3">
+        <label for="lName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lName" formControlName="lName" placeholder="Last Name">
+      </div>
+
+      <!-- Seat Selection Grid -->
+      <div class="mb-3">
+        <label class="form-label">Select Seat</label>
+        <div class="seat-grid">
+          <!-- Rows of seats -->
+          <div class="seat-row" *ngFor="let row of [1, 2, 3, 4]">
+            <button type="button" class="seat" *ngFor="let seat of [1, 2, 3, 4, 5]">
+              {{ row }}{{ seat }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-secondary" [disabled]="bookingForm.invalid">BOOK</button>
+
+    </form>
+  </section>
+</section>
+<section class="d-flex justify-content-center">
+  <section class="mt-5 w-50">
+    <h2 class="text-center">User List</h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Password</th>
+        <th scope="col">UserName</th>
+        <th scope="col">First Name</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="bookings.length===0">
+        <td colspan="6" class="text-center">No Users Found.</td>
+      </tr>
+
+      <tr *ngFor="let u of bookings">
+        <td><button class="btn btn-primary mx-2" (click)="deleteBooking(u.ticketId)"> Delete</button> <button class="btn btn-primary"> Edit</button></td>
+        <td>{{u.ticketId}}</td>
+        <td>{{u.fName}}</td>
+        <td>{{u.lName}}</td>
+        <td>{{u.seatNum}}</td>
+
+      </tr>
+
+      </tbody>
+    </table>
+
+  </section>
+
+</section>
+
