@@ -23,7 +23,8 @@ export class UserComponent implements OnInit{
       password:['',Validators.required],
       fName:['',Validators.required],
       sName:['',Validators.required],
-      email:['',[Validators.required]]
+      email:['',Validators.required],
+      userType:['',[Validators.required]]
     })
   }
 

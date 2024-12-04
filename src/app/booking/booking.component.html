@@ -10,22 +10,22 @@
         <input type="text" class="form-control" id="lName" formControlName="lName" placeholder="Last Name">
       </div>
 
-      <!-- Seat Selection Grid -->
-      <div class="mb-3">
-        <label class="form-label">Select Seat</label>
-        <div class="seat-grid">
-          <!-- Rows of seats -->
-          <div class="seat-row" *ngFor="let row of [1, 2, 3, 4]">
-            <button type="button" class="seat" *ngFor="let seat of [1, 2, 3, 4, 5]">
-              {{ row }}{{ seat }}
-            </button>
-          </div>
-        </div>
-      </div>
 
       <button type="submit" class="btn btn-secondary" [disabled]="bookingForm.invalid">BOOK</button>
 
     </form>
+
+    <section class="mb-4 d-flex justify-content-center">
+      <div class="card" style="width: 18rem;" *ngFor="let event of events">
+        <div class="card-body">
+          <h5 class="card-title">{{event.eventName}}</h5>
+          <h5>Available Ticket Count {{event.ticketCount}}</h5>
+          <p class="card-text">{{event.eventDescription}}</p>
+          <button type="button" class="btn btn-primary" (click)="bookTicket(event.eId)">Book A Ticket</button>
+
+        </div>
+      </div>
+    </section>
   </section>
 </section>
 <section class="d-flex justify-content-center">
@@ -47,8 +47,8 @@
       </tr>
 
       <tr *ngFor="let u of bookings">
-        <td><button class="btn btn-primary mx-2" (click)="deleteBooking(u.ticketId)"> Delete</button> <button class="btn btn-primary"> Edit</button></td>
-        <td>{{u.ticketId}}</td>
+        <td><button class="btn btn-primary mx-2" (click)="deleteBooking(u.bookingId)"> Delete</button> <button class="btn btn-primary"> Edit</button></td>
+        <td>{{u.bookingId}}</td>
         <td>{{u.fName}}</td>
         <td>{{u.lName}}</td>
         <td>{{u.seatNum}}</td>
