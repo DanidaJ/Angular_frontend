@@ -38,11 +38,14 @@ export class UserComponent implements OnInit{
       //send a post http request to the backend server
       this.http.post('http://localhost:8080/api/v1/user/createUser',formData).subscribe(
         (response)=>{
-          console.log("User Saved!",response);
           this.getAllUsers();
+          this.userForm.reset();
+          console.log(response);
+          alert("Signup successful!");
         },
         (error)=>{
-          console.error('Error Saving User',error)
+          console.error(error)
+          alert("Fail to Signup")
         }
       )
     }else {
