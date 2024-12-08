@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           console.log('Login successful:', response);
           localStorage.setItem('authToken', response.token);
+          localStorage.setItem('userType', response.userType);
 
           // Check user type from response and redirect accordingly
           if (response.userType === 'Customer') {
@@ -50,4 +51,5 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
 }
