@@ -6,7 +6,7 @@ import {EventComponent} from './event/event.component';
 import {LoginComponent} from './login/login.component';
 import { CustomerGuard } from './customer.guard';
 import { VendorGuard } from './vendor.guard';
-
+import {AdminComponent} from './admin/admin.component';
 
 
 export const routes: Routes = [
@@ -17,6 +17,7 @@ export const routes: Routes = [
   {path:'events',component:EventComponent,
     canActivate: [VendorGuard],},
   {path:'login',component:LoginComponent},
+  {path:'admin',component:AdminComponent},
   {path:"**",redirectTo:"login"}
 
 

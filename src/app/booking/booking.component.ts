@@ -88,21 +88,42 @@ export class BookingComponent implements OnInit{
     )
   }
   bookTicket(eventId: number) {
-    this.http.put(`http://localhost:8080/api/v1/event/bookTicket/${eventId}`, {})
-      .subscribe(
-        (response) => {
-          if (response) {
+    const fName = localStorage.getItem('fName');
+    const sName = localStorage.getItem('sName');
+    const email = localStorage.getItem('email');
+
+    if (!fName || !sName || !email) {
+      alert('User details not found in local storage. Please log in.');
+      return;
+    }
+
+    // Get the selected event details
+    const selectedEvent = this.events.find((event) => event.eId === eventId);
+
+    if (selectedEvent) {
+      const ticketDetails = {
+        details: `Booking a ticket for eventID ${eventId}`,
+        eventName: selectedEvent.eventName,
+        eventDescription: selectedEvent.eventDescription,
+        fName,
+        sName,
+        email,
+      };
+
+      // Send ticket details to the backend
+      this.http
+        .put(`http://localhost:8080/api/v1/event/bookTicket/${eventId}`, ticketDetails)
+        .subscribe(
+          (response) => {
             alert('Ticket booked successfully!');
-            this.getAllEvents(); // Refresh the list to show updated ticket count
-          } else {
-            alert('No tickets available.');
+            this.getAllEvents(); // Refresh events (to update ticket count)
+          },
+          (error) => {
+            console.error('Error booking ticket', error);
+            alert('Failed to book the ticket.');
           }
-        },
-        (error) => {
-          console.error('Error booking ticket', error);
-          alert('An error occurred while booking the ticket.');
-        }
-      );
+        );
+    }
   }
 
 

@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
           console.log('Login successful:', response);
           localStorage.setItem('authToken', response.token);
           localStorage.setItem('userType', response.userType);
+          localStorage.setItem('fName', response.fName);
+          localStorage.setItem('sName', response.sName);
+          localStorage.setItem('email', response.email);
+
 
           // Check user type from response and redirect accordingly
           if (response.userType === 'Customer') {
