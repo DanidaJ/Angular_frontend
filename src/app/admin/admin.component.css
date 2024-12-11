@@ -1,0 +1,84 @@
+/* General Section Styling */
+section.d-flex {
+  background-color: rgba(26, 26, 46, 0.9); /* Dark transparent overlay */
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Form Styling */
+section.d-flex .form-label {
+  color: #f0f0f0; /* Light text for labels */
+  font-weight: 600; /* Make labels bold */
+}
+
+section.d-flex .form-control {
+  background-color: #2b2b3d; /* Dark input background */
+  color: #e0e0e0; /* Light text for input fields */
+  border: 1px solid #4e4e6f; /* Border matches theme */
+  border-radius: 5px;
+}
+
+section.d-flex .form-control::placeholder {
+  color: #b3b3c9; /* Placeholder text color */
+  font-style: italic;
+}
+
+section.d-flex .form-check-label {
+  color: #f0f0f0; /* Light text for radio buttons */
+}
+
+/* Buttons Styling */
+section.d-flex .btn-primary {
+  background-color: #1a1a2e;
+  color: #78c1e8; /* Subtle blue text for buttons */
+  border: 1px solid #78c1e8;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+section.d-flex .btn-primary:hover {
+  background-color: #78c1e8;
+  color: #ffffff;
+}
+
+/* Table Styling */
+table {
+  background-color: rgba(255, 255, 255, 0.9); /* Light background for table */
+  color: #000000; /* Black text for table content */
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th {
+  background-color: #d3d3d3; /* Light gray for table headers */
+  color: #000000; /* Black text for headers */
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+}
+
+table td {
+  color: #000000; /* Black text for rows */
+  text-align: center;
+  padding: 10px;
+}
+
+table tbody tr:hover {
+  background-color: #e8e8e8; /* Light gray highlight for hover */
+}
+
+table td button {
+  margin-right: 5px;
+  background-color: #1a1a2e;
+  color: #78c1e8;
+  border: 1px solid #78c1e8;
+  font-weight: bold;
+}
+
+table td button:hover {
+  background-color: #78c1e8;
+  color: #ffffff;
+}
