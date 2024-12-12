@@ -1,27 +1,130 @@
-# TicketBooking
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+# README: Frontend for Ticket Booking System
 
-## Development server
+## Overview
+The frontend is developed using Angular to provide a user-friendly interface for booking tickets and viewing events. It communicates with the backend APIs to fetch and update data in real-time.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Technologies Used
+- **Angular 16**: Frontend framework.
+- **TypeScript**: Programming language for Angular.
+- **HTML5/CSS3**: For UI structure and styling.
+- **Bootstrap**: CSS framework for responsive design.
+- **Node.js & npm**: For package management.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Prerequisites
+- Node.js (v16 or higher).
+- npm (v8 or higher).
+- Angular CLI (v16 or higher).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Setup and Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd frontend
+   ```
 
-## Running end-to-end tests
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. **Start the Development Server**:
+   ```bash
+   ng serve
+   ```
 
-## Further help
+4. **Access the Application**:
+   Open your browser and navigate to: `http://localhost:4200`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## Key Features
+
+1. **View Events**:
+   - Events are displayed as cards.
+   - Shows ticket availability.
+
+2. **Book Tickets**:
+   - Button to book tickets.
+   - Sends event and user data to the backend.
+
+3. **Responsive Design**:
+   - Bootstrap ensures mobile-friendly layouts.
+
+4. **Local Storage for User Data**:
+   - Stores user credentials (username and password) for login.
+
+---
+
+## Angular Structure
+
+```
+frontend/
+├── src/
+   ├── app/
+      ├── components/
+         ├── event/
+         ├── booking/
+         ├── user/
+         ├── login/
+      ├── app.module.ts
+   ├── assets/
+   ├── environments/
+```
+
+---
+
+## Components
+
+1. **Event Component**:
+   - Fetches events from the backend.
+   - Displays them in card format.
+
+2. **Ticket Booking Component**:
+   - Handles ticket booking functionality.
+   - Sends user and event data to the backend.
+
+---
+
+## Communication with Backend
+
+- **API Base URL**:
+  Set in `environment.ts`:
+  ```typescript
+  export const environment = {
+    production: false,
+    apiUrl: 'http://localhost:8080/api/v1'
+  };
+  ```
+
+---
+
+## Troubleshooting
+
+1. **Backend Not Running**:
+   Ensure the backend server is running on `http://localhost:8080`.
+
+   ```
+
+2. **Dependencies Error**:
+   Delete `node_modules` and reinstall dependencies:
+   ```bash
+   rm -rf node_modules
+   npm install
+   ```
+
+---
+
+## Future Enhancements
+- Implement user authentication with JWT.
+- Add real-time notifications for ticket bookings.
+- Support multi-language UI (e.g., Sinhala, Tamil, English).
+- Enhance ticket booking UI with animations.
+
