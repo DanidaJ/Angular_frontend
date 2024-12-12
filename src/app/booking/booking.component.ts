@@ -52,7 +52,7 @@ export class BookingComponent implements OnInit{
     const email = localStorage.getItem('email');
 
     if (!fName || !sName || !email) {
-      alert('User details not found in local storage. Please log in.');
+      alert('User details not found in local storage.  Please log in.');
       return;
     }
 
