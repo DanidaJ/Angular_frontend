@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgForOf, NgIf} from '@angular/common';
 
@@ -7,7 +7,7 @@ import {NgForOf, NgIf} from '@angular/common';
   selector: 'app-user',
   standalone: true,
   imports: [
-    ReactiveFormsModule, HttpClientModule, NgForOf,NgIf
+    ReactiveFormsModule, HttpClientModule, NgForOf, NgIf, FormsModule
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
@@ -15,6 +15,7 @@ import {NgForOf, NgIf} from '@angular/common';
 export class AdminComponent implements OnInit{
   users:any[]=[];
   userForm: FormGroup;
+  logData: string='';
 
   constructor(private fb:FormBuilder,private http:HttpClient) {
     this.userForm=this.fb.group({
@@ -44,6 +45,7 @@ export class AdminComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAllUsers();
+    this.getAllLogs();
   }
 
   deleteUser(userId:any) {
@@ -90,5 +92,21 @@ export class AdminComponent implements OnInit{
     }else {
       console.error('Form is invalid')
     }
+  }
+  getAllLogs() {
+    this.http.get<any[]>('http://localhost:8080/api/v1/log/showlog').subscribe(
+      (response) => {
+        // Check if the response is an array
+        if (Array.isArray(response)) {
+          console.log('Logs fetched successfully:', response);
+          this.logData=response.join('\n')
+        } else {
+          console.error('Unexpected response format:', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching logs', error);
+      }
+    );
   }
 }

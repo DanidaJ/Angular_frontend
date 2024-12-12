@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['book']);
           } else if (response.userType === 'Vendor') {
             this.router.navigate(['events']);
+          }else if (response.userType === 'Admin') {
+              this.router.navigate(['admin']);
           } else {
             alert('Invalid user type. Please contact support.');
           }

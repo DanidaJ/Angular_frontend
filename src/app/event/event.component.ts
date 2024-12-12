@@ -21,6 +21,7 @@ export class EventComponent implements OnInit {
       eventName: ['', [Validators.required]],
       eventDescription: ['', [Validators.required]],
       ticketCount: ['', [Validators.required, Validators.min(1)]],
+
     });
   }
 
@@ -42,7 +43,7 @@ export class EventComponent implements OnInit {
   addEvent() {
     if (this.eventForm.valid) {
       const newEvent = this.eventForm.value;
-      this.http.post('http://localhost:8080/api/v1/event/addEvent', newEvent).subscribe(
+      this.http.post('http://localhost:8080/api/v1/event/addEvent',newEvent).subscribe(
         (response) => {
           alert('Event added successfully!');
           this.eventForm.reset();

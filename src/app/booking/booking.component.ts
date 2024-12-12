@@ -28,55 +28,14 @@ export class BookingComponent implements OnInit{
     });
   }
 
-  // Toggle the selection of seats
 
 
-  onSubmit() {
-    console.log(this.bookingForm.value);
 
-    const formData = {
-      ...this.bookingForm.value,
-    };
-
-    this.http.post('http://localhost:8080/api/v1/ticket/book', formData).subscribe(
-      (response) => {
-        console.log("Ticket Booked");
-        this.getAllBookings()
-      },
-      (error) => {
-        console.error('Error Booking Ticket', error)
-      }
-    );
-  }
-
-  getAllBookings(){
-    this.http.get<any[]>('http://localhost:8080/api/v1/ticket/get').subscribe(
-      (response)=>{
-        this.bookings=response;
-        console.log(this.bookings)
-      },
-      (error)=>{
-        console.error('Error fetching bookings',error)
-      }
-    )
-  }
 
   ngOnInit(): void {
-    this.getAllBookings();
     this.getAllEvents();
   }
 
-  deleteBooking(bookingId:any) {
-    this.http.delete('http://localhost:8080/api/v1/ticket/deleteBooking/'+bookingId).subscribe(
-      (response)=>{
-        console.log(response)
-        this.getAllBookings();
-      },
-      (error)=>{
-        console.error('Error fetching bookings',error)
-      }
-    )
-  }
   getAllEvents() {
     this.http.get<any[]>('http://localhost:8080/api/v1/event/getAllEvent').subscribe(
       (response) => {

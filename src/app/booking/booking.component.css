@@ -6,7 +6,12 @@ section.d-flex {
   margin-bottom: 2rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
 }
-
+.container h2 {
+  color: #78c1e8; /* Light blue for the header */
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
 /* Form Styling */
 section.d-flex .form-label {
   color: #f0f0f0; /* Light text for labels */
